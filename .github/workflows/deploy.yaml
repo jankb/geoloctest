@@ -1,0 +1,22 @@
+name: Deply to web.
+
+on:
+  push:
+    paths:
+      - *
+  branches:
+    - 'master'
+
+jobs:
+  web-deploy:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Copy folder with build to the remote server
+        uses: garygrossgarten/github-action-scp@release
+        with: #we will upload data from folder in git hab actions to folder on server
+          local: index.html
+          remote: /var/www/html/   
+          host: ${{ secrets.SERVER }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.PORT }}

@@ -23,12 +23,13 @@
     function error(err) {
       console.error(`ERROR(${err.code}): ${err.message}`);
     }
-    
+
     options = {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0,
     };
+    
     navigator.geolocation.watchPosition(success, error)
   </script>
 </body>

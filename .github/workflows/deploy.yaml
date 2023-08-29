@@ -3,9 +3,9 @@ name: Deply to web.
 on:
   push:
     paths:
-      - '*'
-  branches:
-    - 'main'
+      - 'index.html'
+    branches:
+      - 'main'
 
 jobs:
   web-deploy:
